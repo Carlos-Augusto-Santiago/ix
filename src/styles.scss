@@ -6,10 +6,17 @@
 }
 html,
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  height: 100vh;
   background-color: #f1f3f5;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+// variables
+
+:root {
+  /* Azul Compass */
+  --color-azulCompas: #002fa7;
+  /* Azul links */
+  --color-azulLinks: #0d61e7;
 }
