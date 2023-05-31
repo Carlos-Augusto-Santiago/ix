@@ -1,8 +1,8 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="app-table-admin-container w-100 h-100 d-flex flex-column  justify-content-center align-items-center">
-  <div class="table-container d-flex flex-column gap-2">
-    <div class="header d-flex flex-row justify-content-between">
+  <div class="table-container d-flex flex-column gap-2 fw-bold">
+    <div class="header d-flex flex-row justify-content-between w-100">
       <div class="header-search d-flex flex-row  gap-3">
         <div class="search-client d-flex flex-row align-items-center bg-white p-1 gap-2">
           <span class="material-symbols-outlined">
@@ -11,7 +11,7 @@
           <input [(ngModel)]="search" class="border border-0" placeholder="Buscar cliente" />
           <span>{{search}}</span>
         </div>
-        <select [(ngModel)]="selectedValue" class="border border-0 d-flex flex-row gap-3 p-1">
+        <select [(ngModel)]="selectedValue" class="border border-0 d-flex flex-row gap-3 p-1 ">
           <option *ngFor="let user of selectOptions" [ngValue]="user.id">
             {{user.name}}
           </option>
@@ -25,8 +25,8 @@
       </button>
     </div>
     <div class="table-beneficiaries">
-      <table class="table bg-white p-3 w-100">
-        <thead class="text-center">
+      <table class="table bg-white w-100">
+        <thead class="text-center p-3">
           <th>Cliente</th>
           <th>Estatus</th>
           <th>Última actualización</th>
@@ -36,7 +36,7 @@
         </thead>
         <tbody class="align-middle">
           <tr *ngFor="let person of data">
-            <td>{{ person.firstName + " " + person.lastName}}</td>
+            <td class="p-2">{{ person.firstName + " " + person.lastName}}</td>
             <td id="status" [ngSwitch]="person.status" class="text-center">
               <p *ngSwitchCase='"Por vencer"' class="about-to-expire">{{ person.status }}</p>
               <p *ngSwitchCase='"Actualizado"' class="updated">{{ person.status }}</p>
@@ -45,8 +45,16 @@
               <p *ngSwitchCase='"Espera firma"' class="need-sign">{{ person.status }}</p>
             </td>
             <td class="text-center">{{ person.lastUpdate }}</td>
-            <td class="text-center"><a href="file">Cliente_PDF</a></td>
+            <td class="text-center">{{ person.type }}</td>
             <td class="text-center">{{ person.lastNotification }}</td>
+            <td class="text-center ">
+              <div class="d-flex flex-row align-items-center w-100 justify-content-evenly">
+                <span class="material-symbols-outlined">
+                  description
+                </span>
+                Cliente_PDF
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
