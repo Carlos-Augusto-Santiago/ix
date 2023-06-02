@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, FormularioReactivoComponent],
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

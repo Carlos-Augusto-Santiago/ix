@@ -19,11 +19,26 @@
         }
         select {
           color: var(--color-azulCompas);
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
       button {
         box-shadow: -2px 2px 10px rgba(181, 181, 181, 0.5);
         color: var(--color-azulLinks);
+        &:hover {
+          transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          -moz-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -o-transform: scale(1.1);
+        }
+        transition: all 0.2s linear;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
       }
     }
 

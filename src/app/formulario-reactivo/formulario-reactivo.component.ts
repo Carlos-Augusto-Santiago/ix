@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { clientesInterface } from './clientesInterface';
 import { FormControl } from '@angular/forms';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-formulario-reactivo',
@@ -8,7 +9,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./formulario-reactivo.component.scss'],
 })
 export class FormularioReactivoComponent {
-  // Formulario reactivo
+  // title
+  title = 'http-client';
+  // constructor
+  constructor(private httpService: HttpService) {}
+  posts: any;
 
   // variable para la busqueda
   search: string = '';
@@ -16,8 +21,11 @@ export class FormularioReactivoComponent {
   // variable para las opciones del select
   selectOptions = [
     { id: 0, name: 'Estatus - Todos' },
-    { id: 1, name: '2' },
-    { id: 2, name: '3' },
+    { id: 1, name: 'Estatus - Actualizado' },
+    { id: 2, name: 'Estatus - Por vencer' },
+    { id: 3, name: 'Estatus - Notificado' },
+    { id: 4, name: 'Estatus - Vencido' },
+    { id: 5, name: 'Estatus - Espera Firma' },
   ];
   selectedValue: number = 0;
 
@@ -69,4 +77,12 @@ export class FormularioReactivoComponent {
       file: '',
     },
   ];
+
+  // http service
+  ngOnInit() {
+    this.httpService.getPosts().subscribe((res) => {
+      this.posts = res;
+      console.log(this.posts);
+    });
+  }
 }
